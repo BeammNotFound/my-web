@@ -9,23 +9,26 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
+ * 配置自动填充
  * @author BeamStark
  * @Version 0.1 2020/12
  */
 
-//配置自动填充
+@Slf4j
 @Component
 public class MyMetaObjectHandler implements MetaObjectHandler {
 
     @Override
     public void insertFill(MetaObject metaObject) {
-        this.setFieldValByName("create_time",new Date(),metaObject);
-        this.setFieldValByName("update_time",new Date(),metaObject);
+        log.info("start insert fill ....");
+        this.strictInsertFill(metaObject, "createTime", () -> LocalDateTime.now(), LocalDateTime.class);
+        this.strictUpdateFill(metaObject, "updateTime", () -> LocalDateTime.now(), LocalDateTime.class);
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
-        this.setFieldValByName("update_time",new Date(),metaObject);
+        log.info("start update fill ....");
+        this.strictUpdateFill(metaObject, "updateTime", () -> LocalDateTime.now(), LocalDateTime.class);
     }
 
 }
