@@ -13,6 +13,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface MyWebService extends IService<MyWeb> {
     MyWeb getData();
-    Integer updateLikes(Integer likes);
-    Integer updatePV(Integer pv);
+    String plusOneLike();
+    String plusOnePV();
 }
