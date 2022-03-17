@@ -41,16 +41,16 @@ public class MyWebController {
 
     @ApiOperation("更新喜欢量")
     @Action(description = "更新喜欢量")
-    @PostMapping("update-likes")
-    public CommonResult updateLikes(Integer likes) {
-        return CommonResult.success(myWebService.updateLikes(likes));
+    @GetMapping("plusOneLike")
+    public CommonResult plusOneLike() {
+        return CommonResult.success(myWebService.plusOneLike());
     }
 
     @ApiOperation("更新浏览量")
     @Action(description = "更新浏览量")
-    @PostMapping("update-PV")
-    public CommonResult updatePV(Integer pv) {
-        return CommonResult.success(myWebService.updatePV(pv));
+    @GetMapping("plusOnePV")
+    public CommonResult plusOnePV() {
+        return CommonResult.success(myWebService.plusOnePV());
     }
 }
 
